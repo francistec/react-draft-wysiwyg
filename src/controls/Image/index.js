@@ -15,13 +15,16 @@ class ImageControl extends Component {
 
   constructor(props) {
     super(props);
-    const { modalHandler } = this.props;
     this.state = {
       expanded: false,
     };
-    modalHandler.registerCallBack(this.expandCollapse);
   }
 
+  componentDidMount() {
+    const { modalHandler } = this.props;
+    modalHandler.registerCallBack(this.expandCollapse);
+  }
+  
   componentWillUnmount() {
     const { modalHandler } = this.props;
     modalHandler.deregisterCallBack(this.expandCollapse);
